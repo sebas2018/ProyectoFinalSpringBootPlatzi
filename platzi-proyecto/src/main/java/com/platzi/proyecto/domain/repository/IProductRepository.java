@@ -13,6 +13,7 @@ public interface IProductRepository {
     List<Product> findAllProducts();
     List<Product>findAllProductsByIdCategory(Integer idCategory);
     List<Product> findAllScarceProducts(Integer cantidadStock, String staus);
+    List<Product> findByProductsWithStockQuantityGreaterThanStockQuantity(Integer stockQuantity, String status);
     Optional<Product> findProductById(Integer idProducto)throws Exception;
     Product saveProduct(Product product);
     Product updateProduct(Product product, Integer idProducto)throws Exception;

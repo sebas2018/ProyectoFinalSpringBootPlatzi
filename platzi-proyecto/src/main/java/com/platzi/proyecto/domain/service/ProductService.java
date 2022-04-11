@@ -22,6 +22,11 @@ public class ProductService {
     public List<Product> findAllScarceProducts(Integer cantidadStock, String staus){
         return iProductRepository.findAllScarceProducts(cantidadStock,staus);
     }
+
+    public List<Product> findByProductsWithStockQuantityGreaterThanStockQuantity(Integer stockQuantity, String status){
+        return iProductRepository.findByProductsWithStockQuantityGreaterThanStockQuantity(stockQuantity,status);
+
+    }
     public Optional<Product> findProductById(Integer idProducto) throws Exception {
         return iProductRepository.findProductById(idProducto);
     }

@@ -62,6 +62,14 @@ public class ProductoRepository implements IProductRepository {
         List<Producto>productos = productoJpaRepository.findByCantidadStockLessThanAndEstado(cantidadStock,status);
         return productMapper.toListProduct(productos);
     }
+
+    @Override
+    public List<Product> findByProductsWithStockQuantityGreaterThanStockQuantity(Integer stockQuantity, String status) {
+        List<Producto> productos = productoJpaRepository.findByProductsWithStockQuantityGreaterThanStockQuantity(stockQuantity, status);
+        return  productMapper.toListProduct(productos);
+    }
+
+
     @Override
     public Optional<Product> findProductById(Integer idProducto) throws Exception {
         Optional<Producto> prod = productoJpaRepository.findById(idProducto);

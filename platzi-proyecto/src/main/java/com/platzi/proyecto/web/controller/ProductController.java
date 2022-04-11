@@ -50,6 +50,19 @@ public class ProductController {
         }
 
     }
+
+    @GetMapping("/findByProductsWithStockQuantityGreaterThanStockQuantity/{cantidadStock}/{status}")
+    @ApiOperation("Get all products with stock quantity greater than stock quantity and have active status")
+    @ApiResponses({@ApiResponse(code =200, message = "OK"), @ApiResponse(code =409, message = "Conflict")})
+    public ResponseEntity<List<Product>> findByProductsWithStockQuantityGreaterThanStockQuantity(@PathVariable("cantidadStock")Integer cantidadStock, @PathVariable("status") String status){
+        try {
+           return new ResponseEntity<List<Product>>(productService.findByProductsWithStockQuantityGreaterThanStockQuantity(cantidadStock,status),HttpStatus.OK);
+        }catch (Exception e){
+            return new ResponseEntity(e, HttpStatus.CONFLICT);
+
+        }
+    }
+
     @GetMapping("/findProductById/{idProducto}")
     @ApiOperation("Get product by idProducto")
     @ApiParam(value = "idProducto", required = true)

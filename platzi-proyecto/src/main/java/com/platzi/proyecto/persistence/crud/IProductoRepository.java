@@ -3,6 +3,7 @@ package com.platzi.proyecto.persistence.crud;
 import com.platzi.proyecto.persistence.entity.Producto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 import java.util.Optional;
@@ -20,6 +21,10 @@ public interface IProductoRepository extends JpaRepository<Producto,Integer> {
     //OPERADORES OPCIONALES DE JAVA
     //METODO QUE CONSULTA LOS PRODUCTOS CON CANTIDAD DE SROCK MENOR A ALGO Y QUE TENGAN ESATADO AC
     List<Producto> findByCantidadStockLessThanAndEstado(int cantidadStock, String estado);
+
+    //METODO QUE TRAE LOS PRODUCTOS QUE TIENEN UN CANTIDADSTOCK MAYOR O IGUAL (CANTIDADSTOCK Y QUE TIENEN ESTADO AC)
+    @Query(value = "select * from productos where cantidad_stock >= :stockQuantity AND estado = :status", nativeQuery = true)
+    List<Producto> findByProductsWithStockQuantityGreaterThanStockQuantity(@Param("stockQuantity") Integer stockQuantity, @Param("status") String status);
 
 
 
