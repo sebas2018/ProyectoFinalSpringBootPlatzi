@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-//FILTRO
+//FILTRO - FILTER
 //(OncePerRequestFilter) -->Permite que el filtro se ejecute cada ves que exista una peticion
 @Component
 public class JwtFilterRequest extends OncePerRequestFilter {
