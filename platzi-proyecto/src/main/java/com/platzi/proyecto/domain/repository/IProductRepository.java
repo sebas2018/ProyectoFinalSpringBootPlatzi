@@ -18,6 +18,7 @@ public interface IProductRepository {
     Product saveProduct(Product product);
     Product updateProduct(Product product, Integer idProducto)throws Exception;
     void deleteProduct(Integer idProduct);
+    Optional<?> sumOfStockQuantitiesOfAllProductsWithStatusAc();
 
 }
 

@@ -63,6 +63,19 @@ public class ProductController {
         }
     }
 
+    @GetMapping("/sumOfStockQuantitiesOfAllProductsWithStatusAc")
+    @ApiOperation("Get sum of stock quantities of all products with status AC")
+    @ApiResponses({@ApiResponse(code =200, message = "OK"), @ApiResponse(code =409, message = "Conflict")})
+    public ResponseEntity<Optional<?>>sumOfStockQuantitiesOfAllProductsWithStatusAc(){
+        try {
+            return  new ResponseEntity<Optional<?>>(productService.sumOfStockQuantitiesOfAllProductsWithStatusAc(),HttpStatus.OK);
+
+        }catch (Exception e){
+            return new ResponseEntity(e, HttpStatus.CONFLICT);
+
+        }
+    }
+
     @GetMapping("/findProductById/{idProducto}")
     @ApiOperation("Get product by idProducto")
     @ApiParam(value = "idProducto", required = true)

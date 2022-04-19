@@ -26,6 +26,11 @@ public interface IProductoRepository extends JpaRepository<Producto,Integer> {
     @Query(value = "select * from productos where cantidad_stock >= :stockQuantity AND estado = :status", nativeQuery = true)
     List<Producto> findByProductsWithStockQuantityGreaterThanStockQuantity(@Param("stockQuantity") Integer stockQuantity, @Param("status") String status);
 
+    //METODO QUE CALCULA LA SUMATORIA DE TODOS LOS (cantidad_stock) DE LA TABLA PRODUCTOS
+    @Query(value = "select sum(cantidad_stock) as Total from productos where estado = 'AC'", nativeQuery = true)
+    Optional<?> sumOfStockQuantitiesOfAllProductsWithStatusAc();
+
+
 
 
 }

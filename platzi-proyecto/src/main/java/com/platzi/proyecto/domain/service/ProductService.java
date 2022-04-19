@@ -27,6 +27,12 @@ public class ProductService {
         return iProductRepository.findByProductsWithStockQuantityGreaterThanStockQuantity(stockQuantity,status);
 
     }
+
+    public Optional<?> sumOfStockQuantitiesOfAllProductsWithStatusAc(){
+        return iProductRepository.sumOfStockQuantitiesOfAllProductsWithStatusAc();
+    }
+
+
     public Optional<Product> findProductById(Integer idProducto) throws Exception {
         return iProductRepository.findProductById(idProducto);
     }

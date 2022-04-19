@@ -106,4 +106,10 @@ public class ProductoRepository implements IProductRepository {
     public void deleteProduct(Integer idProduct) {
        productoJpaRepository.deleteById(idProduct);
     }
+
+    @Override
+    public Optional<?> sumOfStockQuantitiesOfAllProductsWithStatusAc() {
+        Optional<?> total = productoJpaRepository.sumOfStockQuantitiesOfAllProductsWithStatusAc();
+        return total;
+    }
 }
